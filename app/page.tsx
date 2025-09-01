@@ -2,14 +2,14 @@
 
 import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
-import Link from "next/link" // Importei o Link para o footer
+import Link from "next/link"
+import Image from "next/image" // 1. Importe o componente Image
 
 export default function FineloQuiz() {
   return (
     <div className="min-h-screen bg-black text-white p-4">
       {/* Header */}
       <header className="flex items-center justify-between bg-black">
-        {/* Espaço reservado para alinhar o logo ao centro */}
         <div className="w-6"></div>
         <div className="text-green-400 text-3xl font-bold">
           <span className="text-green-400">F</span>
@@ -20,19 +20,39 @@ export default function FineloQuiz() {
 
       {/* Badges */}
       <div className="flex flex-row gap-4 justify-center items-center px-4 mt-8 mb-8">
-        <div className="flex-1 bg-[#1A2E26] border border-[#2A4A3A] rounded-lg p-3 text-center">
-          <p className="text-xs text-gray-300">
-            <span className="font-bold text-white">1M+ USERS' CHOICE</span>
-            <br />
-            Learned new skills
-          </p>
+        {/* Badge 1 com Ícone */}
+        <div className="flex-1 bg-[#1A2E26] border border-[#2A4A3A] rounded-lg p-3 flex items-center justify-center gap-3">
+          <Image
+            src="/icon-choice.webp" // 2. Caminho para o seu ícone
+            alt="Users' Choice Icon"
+            width={32} // Ajuste o tamanho conforme necessário
+            height={32}
+          />
+          <div className="text-left">
+            <p className="text-xs text-white font-bold leading-tight">
+              1M+ USERS' CHOICE
+            </p>
+            <p className="text-xs text-gray-400 leading-tight">
+              Learned new skills
+            </p>
+          </div>
         </div>
-        <div className="flex-1 bg-[#1A2E26] border border-[#2A4A3A] rounded-lg p-3 text-center">
-          <p className="text-xs text-gray-300">
-            <span className="font-bold text-white">RATED ON TRUSTPILOT</span>
-            <br />
-            4.6 Satisfaction Score
-          </p>
+        {/* Badge 2 com Ícone */}
+        <div className="flex-1 bg-[#1A2E26] border border-[#2A4A3A] rounded-lg p-3 flex items-center justify-center gap-3">
+          <Image
+            src="/icon-star.webp" // 3. Caminho para o seu ícone
+            alt="Trustpilot Star Icon"
+            width={32} // Ajuste o tamanho conforme necessário
+            height={32}
+          />
+          <div className="text-left">
+            <p className="text-xs text-white font-bold leading-tight">
+              RATED ON TRUSTPILOT
+            </p>
+            <p className="text-xs text-gray-400 leading-tight">
+              4.6 Satisfaction Score
+            </p>
+          </div>
         </div>
       </div>
 
