@@ -2,77 +2,92 @@
 
 import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
+import Link from "next/link" // Importei o Link para o footer
 
 export default function FineloQuiz() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white p-4">
       {/* Header */}
-      <header className="flex items-center justify-between p-4 bg-black">
-        <div></div>
-        <div className="text-green-400 text-xl font-bold">
-          <span className="text-green-400">F</span>inelo
+      <header className="flex items-center justify-between bg-black">
+        {/* Espaço reservado para alinhar o logo ao centro */}
+        <div className="w-6"></div>
+        <div className="text-green-400 text-3xl font-bold">
+          <span className="text-green-400">F</span>
+          inelo
         </div>
         <Menu className="w-6 h-6 text-white" />
       </header>
 
       {/* Badges */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 mt-8 mb-8">
-        <div className="bg-green-500/20 border border-green-500 rounded-full px-4 py-2 text-sm">
-          <span className="text-green-400">✓</span>{" "}
-          <span className="text-green-400 font-semibold">1M+ USERS' CHOICE</span>
-          <br />
-          <span className="text-white text-xs">Learned new skills</span>
+      <div className="flex flex-row gap-4 justify-center items-center px-4 mt-8 mb-8">
+        <div className="flex-1 bg-[#1A2E26] border border-[#2A4A3A] rounded-lg p-3 text-center">
+          <p className="text-xs text-gray-300">
+            <span className="font-bold text-white">1M+ USERS' CHOICE</span>
+            <br />
+            Learned new skills
+          </p>
         </div>
-        <div className="bg-green-500/20 border border-green-500 rounded-full px-4 py-2 text-sm">
-          <span className="text-green-400">★</span>{" "}
-          <span className="text-green-400 font-semibold">RATED ON TRUSTPILOT</span>
-          <br />
-          <span className="text-white text-xs">4.6 Satisfaction Score</span>
+        <div className="flex-1 bg-[#1A2E26] border border-[#2A4A3A] rounded-lg p-3 text-center">
+          <p className="text-xs text-gray-300">
+            <span className="font-bold text-white">RATED ON TRUSTPILOT</span>
+            <br />
+            4.6 Satisfaction Score
+          </p>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col items-center px-4 max-w-4xl mx-auto">
+      <div className="flex flex-col items-center max-w-4xl mx-auto">
         {/* Trading Chart Section */}
         <div className="relative mb-8 w-full max-w-2xl">
           <img
             src="/founder-finelo-chart.webp"
             alt="Founder of Finelo with trading chart showing 130.81 value and performance metrics"
-            className="w-full h-auto rounded-lg"
+            className="w-full h-auto"
           />
         </div>
 
         {/* Challenge Title */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-wider">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-normal leading-tight">
             28-DAY TRADING
             <br />
             CHALLENGE
           </h1>
-          <p className="text-gray-300 text-lg">HAVE YOU EVER TRADED BEFORE?</p>
+          <p className="text-gray-400 text-base font-semibold tracking-wider">
+            HAVE YOU EVER TRADED BEFORE?
+          </p>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-12 w-full max-w-md">
-          <Button
-            className="bg-green-500 hover:bg-green-600 text-black font-semibold py-4 px-8 rounded-lg text-lg flex-1"
-            onClick={() => (window.location.href = "/step2")}
-          >
-            YES <span className="ml-2">›</span>
-          </Button>
-          <Button
-            className="bg-green-500 hover:bg-green-600 text-black font-semibold py-4 px-8 rounded-lg text-lg flex-1"
-            onClick={() => (window.location.href = "/step2")}
-          >
-            NO <span className="ml-2">›</span>
-          </Button>
+        <div className="flex flex-row gap-4 mb-8 w-full max-w-md">
+          <Link href="/step2" className="flex-1">
+            <Button className="w-full bg-[#9EFF00] hover:bg-[#8ee000] text-black font-bold py-6 px-8 rounded-lg text-lg">
+              YES ›
+            </Button>
+          </Link>
+          <Link href="/step2" className="flex-1">
+            <Button className="w-full bg-[#9EFF00] hover:bg-[#8ee000] text-black font-bold py-6 px-8 rounded-lg text-lg">
+              NO ›
+            </Button>
+          </Link>
         </div>
 
         {/* Footer */}
-        <div className="text-center text-gray-500 text-xs max-w-2xl">
+        <div className="text-center text-gray-500 text-xs max-w-md">
           <p className="mb-2">
-            By proceeding, you agree with <span className="underline">Terms and Conditions</span>,{" "}
-            <span className="underline">Privacy Policy</span>, <span className="underline">Subscription Terms</span>
+            By proceeding, you agree with{" "}
+            <Link href="/terms" className="underline">
+              Terms and Conditions
+            </Link>
+            ,{" "}
+            <Link href="/privacy" className="underline">
+              Privacy Policy
+            </Link>
+            ,{" "}
+            <Link href="/subscription" className="underline">
+              Subscription Terms
+            </Link>
           </p>
           <p>FINELO LIMITED, Limassol, Cyprus</p>
         </div>
