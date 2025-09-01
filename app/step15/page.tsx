@@ -29,7 +29,7 @@ export default function FineloQuizStep15() {
 
           {/* Right Side - Phone Mockup */}
           <div className="flex-1 max-w-md">
-            <img src="/finelo-app-mockup.jpg" alt="Finelo App Interface" className="w-full h-auto rounded-2xl" />
+            <img src="/finelo-app-explore.webp" alt="Finelo App Interface" className="w-full h-auto rounded-2xl" />
           </div>
         </div>
       </div>

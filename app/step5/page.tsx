@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
@@ -36,23 +35,23 @@ export default function FineloQuizStep5() {
 
           {/* Income Source Options */}
           <div className="space-y-4">
-            <Link href="/step6">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start flex items-center gap-4">
+            <Link href="/step6" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">💼</span>
-                Full-time job
-              </Button>
+                <span className="text-lg">Full-time job</span>
+              </button>
             </Link>
-            <Link href="/step6">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start flex items-center gap-4">
+            <Link href="/step6" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">📊</span>
-                Passive income
-              </Button>
+                <span className="text-lg">Passive income</span>
+              </button>
             </Link>
-            <Link href="/step6">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start flex items-center gap-4">
+            <Link href="/step6" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">🤔</span>
-                Other
-              </Button>
+                <span className="text-lg">Other</span>
+              </button>
             </Link>
           </div>
         </div>

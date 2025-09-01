@@ -29,8 +29,8 @@ export default function FineloQuizStep7() {
           {/* Right Side - Motivational Image */}
           <div className="flex-1 max-w-md">
             <img
-              src="/mountain-person-phone.jpg"
-              alt="Person with phone in mountain landscape"
+              src="/ed-phone-mountains.webp"
+              alt="Person with phone in snowy mountain landscape"
               className="w-full h-auto rounded-lg"
             />
           </div>

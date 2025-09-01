@@ -31,8 +31,8 @@ export default function FineloQuizStep10() {
           {/* Right Side - Mountain Image */}
           <div className="flex-1 max-w-md">
             <img
-              src="/mountain-pointing-person.jpg"
-              alt="Person pointing at mountains"
+              src="/ed-guide-mountains.webp"
+              alt="Person pointing at snowy mountain landscape"
               className="w-full h-auto rounded-lg"
             />
           </div>

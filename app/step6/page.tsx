@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
@@ -36,22 +35,23 @@ export default function FineloQuizStep6() {
 
           {/* Financial Situation Options */}
           <div className="space-y-4">
-            <Link href="/step7">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start flex items-center gap-4">
+            <Link href="/step7" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">😊</span>
-                I'm comfortable
-              </Button>
+                <span className="text-lg">I'm comfortable</span>
+              </button>
             </Link>
-            <Link href="/step7">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start flex items-center gap-4">
-                <span className="text-2xl">😐</span>I would like to have more stability
-              </Button>
+            <Link href="/step7" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
+                <span className="text-2xl">😐</span>
+                <span className="text-lg">I would like to have more stability</span>
+              </button>
             </Link>
-            <Link href="/step7">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start flex items-center gap-4">
+            <Link href="/step7" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">😟</span>
-                I'm struggling to meet my financial goals
-              </Button>
+                <span className="text-lg">I'm struggling to meet my financial goals</span>
+              </button>
             </Link>
           </div>
         </div>

@@ -17,7 +17,7 @@ export default function FineloQuizStep2() {
       {/* Main Content */}
       <div className="flex flex-col items-center justify-center px-4 max-w-4xl mx-auto min-h-[80vh]">
         {/* Social Proof Section */}
-        <div className="bg-gray-900 rounded-lg p-8 mb-8 w-full max-w-lg text-center">
+        <div className="rounded-lg p-8 mb-8 w-full max-w-lg text-center bg-[rgba(30,30,30,1)]">
           {/* User Count */}
           <div className="mb-6">
             <h2 className="text-green-400 text-3xl font-bold mb-2">1000 000+ people</h2>
@@ -25,7 +25,7 @@ export default function FineloQuizStep2() {
           </div>
 
           {/* Testimonial */}
-          <div className="mb-6">
+          <div className="mb-6 bg-black rounded-lg pt-2.5 pb-2.5 pl-1.5 pr-1.5">
             <blockquote className="text-white text-lg mb-4 leading-relaxed">
               &quot;A good trader is someone who manages to make money while limiting risk.&quot;
             </blockquote>
@@ -41,19 +41,12 @@ export default function FineloQuizStep2() {
           <div className="text-center">
             <p className="text-gray-300 text-sm mb-4">Trading strategies mentioned in</p>
             <div className="flex flex-col items-center gap-4">
-              <div className="grid grid-cols-3 gap-4 items-center justify-items-center">
-                <div className="text-white font-bold text-lg">TIME</div>
-                <div className="text-white font-bold text-lg">WSJ</div>
-                <div className="text-white font-bold text-lg">Forbes</div>
-              </div>
-              <div className="grid grid-cols-2 gap-4 items-center justify-items-center">
-                <div className="text-white font-bold text-lg">TC</div>
-                <div className="text-white font-bold text-lg">The Guardian</div>
-              </div>
-              <div className="bg-white rounded-lg p-4 max-w-xs">
+              
+              
+              <div className="rounded-lg p-4 max-w-xs bg-[rgba(30,30,30,1)]">
                 <img src="/the-economist-logo-new.webp" alt="The Economist" className="w-full h-auto" />
               </div>
-              <div className="text-white font-bold text-lg">FINANCIAL TIMES</div>
+              
             </div>
           </div>
         </div>

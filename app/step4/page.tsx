@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
@@ -32,41 +31,41 @@ export default function FineloQuizStep4() {
 
           {/* Goal Options */}
           <div className="space-y-4">
-            <Link href="/step5">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start flex items-center gap-4">
+            <Link href="/step5" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">💰</span>
-                Grow wealth
-              </Button>
+                <span className="text-lg">Grow wealth</span>
+              </button>
             </Link>
-            <Link href="/step5">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start flex items-center gap-4">
+            <Link href="/step5" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">⚡</span>
-                Passive income
-              </Button>
+                <span className="text-lg">Passive income</span>
+              </button>
             </Link>
-            <Link href="/step5">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start flex items-center gap-4">
+            <Link href="/step5" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">🚀</span>
-                Financial independence
-              </Button>
+                <span className="text-lg">Financial independence</span>
+              </button>
             </Link>
-            <Link href="/step5">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start flex items-center gap-4">
+            <Link href="/step5" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">😎</span>
-                Be my own boss
-              </Button>
+                <span className="text-lg">Be my own boss</span>
+              </button>
             </Link>
-            <Link href="/step5">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start flex items-center gap-4">
+            <Link href="/step5" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">🏖️</span>
-                Retire wealthy
-              </Button>
+                <span className="text-lg">Retire wealthy</span>
+              </button>
             </Link>
-            <Link href="/step5">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start flex items-center gap-4">
+            <Link href="/step5" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">🌍</span>
-                Travel the world
-              </Button>
+                <span className="text-lg">Travel the world</span>
+              </button>
             </Link>
           </div>
         </div>

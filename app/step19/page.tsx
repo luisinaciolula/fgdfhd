@@ -16,46 +16,39 @@ export default function FineloQuizStep19() {
           <div className="text-green-400 text-xl font-bold">
             <span className="text-green-400">F</span>inelo
           </div>
-          <div className="text-white text-sm">15/18</div>
+          <div className="text-white text-sm">14/18</div>
         </div>
         {/* Progress Bar */}
         <div className="w-full bg-gray-800 h-1">
-          <div className="bg-green-400 h-1" style={{ width: "83.33%" }}></div>
+          <div className="bg-green-400 h-1" style={{ width: "77.78%" }}></div>
         </div>
       </header>
 
       {/* Main Content */}
       <div className="flex flex-col items-center justify-center px-4 max-w-2xl mx-auto py-12 min-h-[80vh]">
         <h1 className="text-white text-3xl font-bold text-center mb-12 text-balance">
-          What would you do with extra income from trading?
+          How much would you like to make from trading?
         </h1>
 
         <div className="w-full space-y-4">
           <Link href="/step20" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
-              <span className="text-2xl">💳</span>
-              <span className="text-lg">Paying off bills or loans</span>
+              <span className="text-2xl">💵</span>
+              <span className="text-lg">$30,000 - $50,000</span>
             </button>
           </Link>
 
           <Link href="/step20" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
-              <span className="text-2xl">🎯</span>
-              <span className="text-lg">Investing and growing it</span>
-            </button>
-          </Link>
-
-          <Link href="/step20" className="block">
-            <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
-              <span className="text-2xl">🏖️</span>
-              <span className="text-lg">Enjoying life experiences</span>
+              <span className="text-2xl">💸</span>
+              <span className="text-lg">$50,000 - $100,000</span>
             </button>
           </Link>
 
           <Link href="/step20" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
               <span className="text-2xl">💰</span>
-              <span className="text-lg">Saving for unexpected expenses</span>
+              <span className="text-lg">More than $100,000</span>
             </button>
           </Link>
         </div>

@@ -1,106 +1,104 @@
 "use client"
 
-import Link from "next/link"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
+import { ArrowLeft } from "lucide-react"
 
-export default function FineloQuizStep16() {
-  const [selectedTools, setSelectedTools] = useState<string[]>([])
+export default function Step16() {
+  const router = useRouter()
+  const [selectedCompanies, setSelectedCompanies] = useState<string[]>([])
 
-  const toggleTool = (tool: string) => {
-    setSelectedTools((prev) => (prev.includes(tool) ? prev.filter((t) => t !== tool) : [...prev, tool]))
+  const companies = [
+    { name: "Netflix", icon: "🎬", color: "bg-red-600" },
+    { name: "Tesla", icon: "🚗", color: "bg-red-500" },
+    { name: "Apple", icon: "🍎", color: "bg-gray-800" },
+    { name: "Amazon", icon: "📦", color: "bg-gray-700" },
+    { name: "McDonalds", icon: "🍟", color: "bg-yellow-500" },
+    { name: "Shell", icon: "⛽", color: "bg-red-600" },
+    { name: "Exxon", icon: "🛢️", color: "bg-red-700" },
+    { name: "Microsoft", icon: "💻", color: "bg-blue-600" },
+    { name: "Google", icon: "🔍", color: "bg-blue-500" },
+    { name: "Pfizer", icon: "💊", color: "bg-blue-700" },
+  ]
+
+  const toggleCompany = (company: string) => {
+    setSelectedCompanies((prev) => (prev.includes(company) ? prev.filter((c) => c !== company) : [...prev, company]))
   }
 
-  const tools = [
-    { id: "tips", label: "Regular trading tips and tricks", icon: "💡" },
-    { id: "ai-coach", label: "AI Trading Coach", icon: "🤖" },
-    { id: "learning-plan", label: "Personal Learning Plan", icon: "📚" },
-    { id: "simulator", label: "Virtual risk-free trading simulator", icon: "📈" },
-    { id: "strategies", label: "Strategies of successful traders", icon: "😎" },
-  ]
+  const handleNext = () => {
+    router.push("/step17")
+  }
+
+  const handleBack = () => {
+    router.push("/step15")
+  }
 
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
-      <header className="bg-black">
-        <div className="flex items-center justify-between p-4">
-          <Link href="/step15">
-            <button className="text-white hover:text-green-400 transition-colors">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-          </Link>
-          <div className="text-green-400 text-xl font-bold">
-            <span className="text-green-400">F</span>inelo
-          </div>
-          <div className="text-white text-sm">12/18</div>
+      <div className="flex items-center justify-between p-4">
+        <button onClick={handleBack} className="text-white hover:text-green-400 transition-colors">
+          <ArrowLeft size={24} />
+        </button>
+
+        <div className="flex items-center gap-2">
+          <span className="text-green-400 font-bold text-xl">F</span>
+          <span className="text-white font-bold text-xl">Finelo</span>
         </div>
 
-        {/* Progress Bar */}
-        <div className="w-full bg-gray-800 h-1">
-          <div className="bg-green-400 h-1" style={{ width: "66.67%" }}></div>
-        </div>
-      </header>
+        <div className="text-white text-sm">11 / 18</div>
+      </div>
 
-      {/* Main Content */}
-      <div className="flex flex-col items-center px-4 max-w-4xl mx-auto py-12 min-h-[80vh]">
-        <div className="text-center mb-12">
-          <h1 className="text-white text-3xl font-bold mb-4 text-balance">
-            Which tools would you like to have for your trading journey?
-          </h1>
+      {/* Progress Bar */}
+      <div className="px-4 mb-8">
+        <div className="w-full bg-gray-800 h-1 rounded-full">
+          <div className="bg-green-400 h-1 rounded-full transition-all duration-300" style={{ width: "61.11%" }}></div>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="px-4 flex flex-col items-center">
+        <div className="w-full max-w-2xl text-center mb-8">
+          <h1 className="text-2xl md:text-3xl font-bold mb-4">Which companies are you most interested in?</h1>
           <p className="text-gray-400 text-lg">Choose all that apply</p>
         </div>
 
-        {/* Tools Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl mb-12">
-          {tools.map((tool) => (
-            <button
-              key={tool.id}
-              onClick={() => toggleTool(tool.id)}
-              className={`p-6 rounded-lg border-2 transition-all text-left ${
-                selectedTools.includes(tool.id)
-                  ? "bg-green-400/10 border-green-400 text-white"
-                  : "bg-gray-800 border-gray-700 hover:border-gray-600 text-white"
-              }`}
-            >
-              <div className="flex items-center gap-4">
-                <span className="text-2xl">{tool.icon}</span>
-                <span className="text-lg font-medium">{tool.label}</span>
-              </div>
-            </button>
-          ))}
-
-          {/* Last item spans full width on larger screens */}
-          <div className="md:col-span-2 flex justify-center">
-            <button
-              onClick={() => toggleTool("strategies")}
-              className={`p-6 rounded-lg border-2 transition-all text-left max-w-md w-full ${
-                selectedTools.includes("strategies")
-                  ? "bg-green-400/10 border-green-400 text-white"
-                  : "bg-gray-800 border-gray-700 hover:border-gray-600 text-white"
-              }`}
-            >
-              <div className="flex items-center gap-4">
-                <span className="text-2xl">😎</span>
-                <span className="text-lg font-medium">Strategies of successful traders</span>
-              </div>
-            </button>
+        {/* Companies Grid */}
+        <div className="w-full max-w-2xl mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {companies.map((company) => (
+              <button
+                key={company.name}
+                onClick={() => toggleCompany(company.name)}
+                className={`
+                  flex items-center gap-3 p-4 rounded-full border-2 transition-all duration-200
+                  ${
+                    selectedCompanies.includes(company.name)
+                      ? "border-green-400 bg-green-400/10"
+                      : "border-gray-600 hover:border-gray-500"
+                  }
+                `}
+              >
+                <div
+                  className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-sm ${company.color}`}
+                >
+                  {company.icon}
+                </div>
+                <span className="text-white font-medium">{company.name}</span>
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Next Step Button */}
-        <Link href="/step17">
+        {/* Next Button */}
+        <div className="w-full max-w-md">
           <button
-            className={`font-semibold px-12 py-4 rounded-lg text-lg transition-colors ${
-              selectedTools.length === 0
-                ? "bg-gray-600 text-gray-400 cursor-not-allowed"
-                : "bg-green-400 hover:bg-green-500 text-black"
-            }`}
-            disabled={selectedTools.length === 0}
+            onClick={handleNext}
+            className="w-full bg-green-400 text-black font-bold py-4 px-8 rounded-lg hover:bg-green-300 transition-colors text-lg"
           >
             NEXT STEP
           </button>
-        </Link>
+        </div>
       </div>
     </div>
   )

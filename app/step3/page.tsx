@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
@@ -27,37 +26,37 @@ export default function FineloQuizStep3() {
         {/* Left Side - Question */}
         <div className="flex-1 max-w-2xl">
           <div className="mb-8">
-            <h1 className="text-white text-4xl font-bold mb-4">What is your age?</h1>
-            <p className="text-gray-300 text-lg">We will personalize your Trading Challenge based on your answers</p>
+            <h1 className="text-white text-4xl font-bold mb-4 text-center">What is your age?</h1>
+            <p className="text-gray-300 text-lg text-center">We will personalize your Trading Challenge based on your answers</p>
           </div>
 
           {/* Age Options */}
           <div className="space-y-4">
-            <Link href="/step4">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start">
+            <Link href="/step4" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-lg text-left transition-colors">
                 18-24
-              </Button>
+              </button>
             </Link>
-            <Link href="/step4">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start">
+            <Link href="/step4" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-lg text-left transition-colors">
                 25-34
-              </Button>
+              </button>
             </Link>
-            <Link href="/step4">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start">
+            <Link href="/step4" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-lg text-left transition-colors">
                 35-44
-              </Button>
+              </button>
             </Link>
-            <Link href="/step4">
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-6 px-8 rounded-lg text-xl border-0 justify-start">
+            <Link href="/step4" className="block">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-lg text-left transition-colors">
                 45+
-              </Button>
+              </button>
             </Link>
           </div>
         </div>
 
         {/* Right Side - Founder Image */}
-        <div className="hidden lg:block flex-1 max-w-md">
+        <div className="hidden lg:block flex-1 max-w-md mr-[-100px] mb-[-220px]">
           <img src="/founder-with-phone.webp" alt="Founder of Finelo" className="w-full h-auto" />
         </div>
       </div>

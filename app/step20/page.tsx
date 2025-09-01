@@ -26,34 +26,36 @@ export default function FineloQuizStep20() {
 
       {/* Main Content */}
       <div className="flex flex-col items-center justify-center px-4 max-w-2xl mx-auto py-12 min-h-[80vh]">
-        <h1 className="text-white text-3xl font-bold text-center mb-12 text-balance">Rate your readiness to trade</h1>
+        <h1 className="text-white text-3xl font-bold text-center mb-12 text-balance">
+          What would you do with extra income from trading?
+        </h1>
 
         <div className="w-full space-y-4">
           <Link href="/step21" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
-              <span className="text-2xl">🤩</span>
-              <span className="text-lg">All set</span>
+              <span className="text-2xl">💳</span>
+              <span className="text-lg">Paying off bills or loans</span>
             </button>
           </Link>
 
           <Link href="/step21" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
-              <span className="text-2xl">😛</span>
-              <span className="text-lg">Ready</span>
+              <span className="text-2xl">🎯</span>
+              <span className="text-lg">Investing and growing it</span>
             </button>
           </Link>
 
           <Link href="/step21" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
-              <span className="text-2xl">🤔</span>
-              <span className="text-lg">Somewhat Ready</span>
+              <span className="text-2xl">🏖️</span>
+              <span className="text-lg">Enjoying life experiences</span>
             </button>
           </Link>
 
           <Link href="/step21" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
-              <span className="text-2xl">😬</span>
-              <span className="text-lg">Not Ready</span>
+              <span className="text-2xl">💰</span>
+              <span className="text-lg">Saving for unexpected expenses</span>
             </button>
           </Link>
         </div>
