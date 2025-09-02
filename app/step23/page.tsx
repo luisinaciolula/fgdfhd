@@ -32,28 +32,28 @@ export default function FineloQuizStep23() {
 
         {/* Options */}
         <div className="w-full max-w-2xl space-y-4 mb-12">
-          <Link href="/final" className="block">
+          <Link href="/step24" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-4 rounded-lg transition-colors flex items-center gap-4">
               <span className="text-2xl">👍</span>
               <span className="text-lg">5 min/day</span>
             </button>
           </Link>
 
-          <Link href="/final" className="block">
+          <Link href="/step24" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-4 rounded-lg transition-colors flex items-center gap-4">
               <span className="text-2xl">👌</span>
               <span className="text-lg">10 min/day</span>
             </button>
           </Link>
 
-          <Link href="/final" className="block">
+          <Link href="/step24" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-4 rounded-lg transition-colors flex items-center gap-4">
               <span className="text-2xl">🤟</span>
               <span className="text-lg">15 min/day</span>
             </button>
           </Link>
 
-          <Link href="/final" className="block">
+          <Link href="/step24" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-4 rounded-lg transition-colors flex items-center gap-4">
               <span className="text-2xl">💪</span>
               <span className="text-lg">20 min/day</span>

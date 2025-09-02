@@ -29,28 +29,28 @@ export default function FineloQuizStep21() {
         <h1 className="text-white text-3xl font-bold text-center mb-12 text-balance">Rate your readiness to trade</h1>
 
         <div className="w-full space-y-4">
-          <Link href="/step22" className="block">
+          <Link href="/step22b" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
               <span className="text-2xl">🤩</span>
               <span className="text-lg">All set</span>
             </button>
           </Link>
 
-          <Link href="/step22" className="block">
+          <Link href="/step22b" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
               <span className="text-2xl">😛</span>
               <span className="text-lg">Ready</span>
             </button>
           </Link>
 
-          <Link href="/step22" className="block">
+          <Link href="/step22b" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
               <span className="text-2xl">🤔</span>
               <span className="text-lg">Somewhat Ready</span>
             </button>
           </Link>
 
-          <Link href="/step22" className="block">
+          <Link href="/step22b" className="block">
             <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
               <span className="text-2xl">😬</span>
               <span className="text-lg">Not Ready</span>
