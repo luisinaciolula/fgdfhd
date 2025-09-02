@@ -1,60 +1,61 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
 
 export default function Step18() {
   const router = useRouter()
 
   const handleContinue = () => {
+    // Corrigido para redirecionar para /step19
     router.push("/step19")
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white flex flex-col p-4">
       {/* Header */}
-      <div className="flex items-center justify-center p-4">
-        <div className="flex items-center gap-2">
-          <span className="text-[#9ACD32] font-bold text-lg">F</span>
-          <span className="text-white font-bold text-lg">Finelo</span>
+      <header className="flex items-center justify-center py-4">
+        <div className="text-green-400 text-2xl sm:text-3xl font-bold">
+          <span className="text-green-400">F</span>inelo
         </div>
-      </div>
+      </header>
 
       {/* Main Content */}
-      <div className="flex flex-col lg:flex-row items-center justify-center min-h-[80vh] px-4 gap-12">
-        {/* Left Side - Text Content */}
-        <div className="flex-1 max-w-lg text-center lg:text-left">
-          <h1 className="text-3xl lg:text-4xl font-bold mb-6 text-balance">
-            Get the Right Tools to Trade with Confidence!
-          </h1>
-          <p className="text-gray-300 text-lg leading-relaxed">
-            Why start trading unprepared? We provide everything you need—expert tips, AI coaching, personalized
-            learning, and risk-free simulations. No more guessing—just clear, step-by-step guidance to level up your
-            trading journey.
-          </p>
-        </div>
+      <main className="flex-grow flex items-center justify-center">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 w-full max-w-6xl">
+          {/* Right Side - Trading Chart Visualization (Aparece primeiro no mobile) */}
+          <div className="flex-1 max-w-lg order-first lg:order-none">
+            <img
+              src="/trading-chart-dark.webp"
+              alt="Trading chart with buy and sell indicators"
+              className="w-full h-auto rounded-2xl"
+            />
+          </div>
 
-        {/* Right Side - Trading Chart Visualization */}
-        <div className="flex-1 max-w-lg">
-          <img
-            src="/trading-chart-dark.webp"
-            alt="Trading chart with buy and sell indicators"
-            className="w-full h-auto rounded-2xl"
-          />
+          {/* Left Side - Text Content (Centralizado no mobile) */}
+          <div className="flex-1 max-w-lg text-center lg:text-left">
+            <h1 className="text-3xl lg:text-4xl font-bold mb-6 text-balance">
+              Get the Right Tools to Trade with Confidence!
+            </h1>
+            <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
+              Why start trading unprepared? We provide everything you need—expert tips, AI coaching, personalized
+              learning, and risk-free simulations. No more guessing—just clear, step-by-step guidance to level up your
+              trading journey.
+            </p>
+          </div>
         </div>
-      </div>
+      </main>
 
       {/* Continue Button */}
-      <div className="flex justify-center pb-8">
-        <div className="max-w-md w-full px-4">
-          <Button
+      <footer className="flex justify-center py-4">
+        <div className="w-full max-w-md">
+          <button
             onClick={handleContinue}
-            className="w-full bg-[#9ACD32] hover:bg-[#8BC34A] text-black font-semibold py-4 text-lg rounded-xl"
+            className="w-full bg-green-400 hover:bg-green-500 text-black font-bold py-4 px-8 rounded-lg text-lg transition-colors"
           >
             CONTINUE
-          </Button>
+          </button>
         </div>
-      </div>
+      </footer>
     </div>
   )
 }

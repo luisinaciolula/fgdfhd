@@ -3,73 +3,72 @@ import Link from "next/link"
 
 export default function FineloQuizStep4() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white flex flex-col p-4">
       {/* Header with Progress */}
-      <header className="bg-black">
-        <div className="flex items-center justify-between p-4">
-          <Link href="/step3">
-            <ArrowLeft className="w-6 h-6 text-white" />
-          </Link>
-          <div className="text-green-400 text-xl font-bold">
-            <span className="text-green-400">F</span>inelo
-          </div>
-          <div className="text-white text-sm">2/18</div>
+      <header className="flex items-center justify-between">
+        <Link href="/step3">
+          <ArrowLeft className="w-6 h-6 text-white" />
+        </Link>
+        <div className="text-green-400 text-xl font-bold">
+          <span className="text-green-400">F</span>inelo
         </div>
-        {/* Progress Bar */}
-        <div className="w-full bg-gray-800 h-1">
-          <div className="bg-green-400 h-1" style={{ width: "11.11%" }}></div>
-        </div>
+        <div className="text-white text-sm">2/18</div>
       </header>
 
+      {/* Progress Bar */}
+      <div className="w-full bg-gray-800 h-1 rounded-full my-4">
+        <div className="bg-green-400 h-1 rounded-full" style={{ width: "11.11%" }}></div>
+      </div>
+
+
       {/* Main Content */}
-      <div className="flex items-center justify-center px-4 max-w-4xl mx-auto min-h-[80vh] pt-3.5 pb-3.5">
-        {/* Question */}
+      <main className="flex-grow flex flex-col items-center justify-center">
         <div className="w-full max-w-2xl">
           <div className="mb-8 text-center">
-            <h1 className="text-white text-4xl font-bold mb-4">What is your main goal?</h1>
+            <h1 className="text-3xl lg:text-4xl font-bold mb-4">What is your main goal?</h1>
           </div>
 
           {/* Goal Options */}
           <div className="space-y-4">
             <Link href="/step5" className="block">
-              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-4 sm:p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">💰</span>
-                <span className="text-lg">Grow wealth</span>
+                <span className="text-base sm:text-lg">Grow wealth</span>
               </button>
             </Link>
             <Link href="/step5" className="block">
-              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-4 sm:p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">⚡</span>
-                <span className="text-lg">Passive income</span>
+                <span className="text-base sm:text-lg">Passive income</span>
               </button>
             </Link>
             <Link href="/step5" className="block">
-              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-4 sm:p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">🚀</span>
-                <span className="text-lg">Financial independence</span>
+                <span className="text-base sm:text-lg">Financial independence</span>
               </button>
             </Link>
             <Link href="/step5" className="block">
-              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-4 sm:p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">😎</span>
-                <span className="text-lg">Be my own boss</span>
+                <span className="text-base sm:text-lg">Be my own boss</span>
               </button>
             </Link>
             <Link href="/step5" className="block">
-              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-4 sm:p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">🏖️</span>
-                <span className="text-lg">Retire wealthy</span>
+                <span className="text-base sm:text-lg">Retire wealthy</span>
               </button>
             </Link>
             <Link href="/step5" className="block">
-              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-6 rounded-lg text-left transition-colors flex items-center gap-4">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white p-4 sm:p-6 rounded-lg text-left transition-colors flex items-center gap-4">
                 <span className="text-2xl">🌍</span>
-                <span className="text-lg">Travel the world</span>
+                <span className="text-base sm:text-lg">Travel the world</span>
               </button>
             </Link>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   )
 }
