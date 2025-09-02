@@ -1,23 +1,66 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useRouter } from 'next/navigation' // Importa useRouter para navegação
+
+// Lista de depoimentos para o carrossel
+const testimonials = [
+  {
+    author: "Neil Chase",
+    title: "The experience is topnotch",
+    text: "“The material offered has taught me various aspects of trading via a website or app effectively. The content is very straightforward and accurate. Most importantly, it's simple to grasp, particularly for newcomers just beginning to explore trading strategies.”",
+  },
+  {
+    author: "Damian Paton",
+    title: "Great insights...",
+    text: "“The information provided here, especially trading insights, has truly been a revelation for me. It feels like a dream come true, as I've longed to connect with this level of knowledge for a while.”",
+  },
+  {
+    author: "Liam Stanford",
+    title: "Awesome investment...",
+    text: "“Incredible! Finelo has given me enhanced insights into trading, and I'm really enjoying the process of learning more about trading strategies and challenges.”",
+  },
+]
 
 export default function FineloQuizStep25() {
   const [progress, setProgress] = useState(0)
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0)
+  const [loadingComplete, setLoadingComplete] = useState(false)
+  const router = useRouter() // Inicializa o hook useRouter
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    // Tempo total de progresso: 35 segundos = 35000 ms
+    // Para ir de 0 a 100 em 35 segundos, precisamos de 100 passos.
+    // Intervalo de cada passo: 35000 ms / 100 passos = 350 ms
+    // No seu código, você definiu 250ms, o que fará o carregamento mais rápido (25 segundos).
+    // Se quiser 35 segundos exatos, mantenha 350ms.
+    // Usei 250ms como no seu último código, para manter a consistência, mas comentei a explicação.
+    const progressInterval = 180 // ms (250ms * 100 passos = 25 segundos. Se quiser 35s, mude para 350ms)
+
+    const progressTimer = setInterval(() => {
       setProgress((prev) => {
-        if (prev >= 46) {
-          clearInterval(timer)
-          return 46
+        if (prev >= 100) {
+          clearInterval(progressTimer)
+          setLoadingComplete(true) // Define que o carregamento foi completado
+          router.push('/step26') // Redireciona para a página /step26
+          return 100
         }
         return prev + 1
       })
-    }, 50)
+    }, progressInterval)
 
-    return () => clearInterval(timer)
-  }, [])
+    // Timer para o carrossel de depoimentos (a cada 5 segundos)
+    const testimonialTimer = setInterval(() => {
+      setCurrentTestimonialIndex((prev) => (prev + 1) % testimonials.length)
+    }, 5000) // Troca de depoimento a cada 5 segundos
+
+    return () => {
+      clearInterval(progressTimer)
+      clearInterval(testimonialTimer)
+    }
+  }, [router]) // Adicione router como dependência para useEffect
+
+  const currentTestimonial = testimonials[currentTestimonialIndex]
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -70,8 +113,8 @@ export default function FineloQuizStep25() {
           <p className="text-white text-xl">have chosen Finelo</p>
         </div>
 
-        {/* Testimonial Card */}
-        <div className="bg-gray-800 rounded-lg p-6 max-w-md w-full">
+        {/* Testimonial Card (Carrossel) */}
+        <div className="bg-gray-800 rounded-lg p-6 max-w-md w-full min-h-[250px] flex flex-col justify-between">
           {/* Stars */}
           <div className="flex gap-1 mb-3">
             {[...Array(5)].map((_, i) => (
@@ -81,14 +124,13 @@ export default function FineloQuizStep25() {
             ))}
           </div>
 
-          <h3 className="text-white font-semibold mb-3">Awesome Investment...</h3>
+          <h3 className="text-white font-semibold mb-3">{currentTestimonial.title}</h3>
 
-          <p className="text-gray-300 text-sm mb-4">
-            "Incredible! Finelo has given me enhanced insights into trading, and I'm really enjoying the process of
-            learning more about trading strategies and challenges."
+          <p className="text-gray-300 text-sm mb-4 flex-grow">
+            {currentTestimonial.text}
           </p>
 
-          <p className="text-white font-medium text-right">Liam Stanford</p>
+          <p className="text-white font-medium text-right">{currentTestimonial.author}</p>
         </div>
       </div>
     </div>
