@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image" // 1. Importe o componente Image
+import Image from "next/image"
 
 export default function FineloQuiz() {
   return (
@@ -11,7 +11,8 @@ export default function FineloQuiz() {
       {/* Header */}
       <header className="flex items-center justify-between bg-black">
         <div className="w-6"></div>
-        <div className="text-green-400 text-3xl font-bold">
+        {/* Texto menor no mobile (text-2xl), maior em telas sm+ (sm:text-3xl) */}
+        <div className="text-green-400 text-2xl sm:text-3xl font-bold">
           <span className="text-green-400">F</span>
           inelo
         </div>
@@ -19,37 +20,40 @@ export default function FineloQuiz() {
       </header>
 
       {/* Badges */}
-      <div className="flex flex-row gap-4 justify-center items-center px-4 mt-8 mb-8">
+      <div className="flex flex-row gap-4 justify-center items-stretch mt-8 mb-8">
         {/* Badge 1 com Ícone */}
-        <div className="flex-1 bg-[#1A2E26] border border-[#2A4A3A] rounded-lg p-3 flex items-center justify-center gap-3">
+        {/* Padding e gap menores no mobile, maiores em sm+ */}
+        <div className="flex-1 bg-[#1A2E26] border border-[#2A4A3A] rounded-lg p-2 sm:p-3 flex items-center justify-center gap-2 sm:gap-3">
           <Image
-            src="/icon-choice.webp" // 2. Caminho para o seu ícone
+            src="/icon-choice.webp"
             alt="Users' Choice Icon"
-            width={32} // Ajuste o tamanho conforme necessário
+            width={32}
             height={32}
+            className="w-6 h-6 sm:w-8 sm:h-8" // Ícone menor no mobile
           />
           <div className="text-left">
             <p className="text-xs text-white font-bold leading-tight">
               1M+ USERS' CHOICE
             </p>
-            <p className="text-xs text-gray-400 leading-tight">
+            <p className="text-[10px] sm:text-xs text-gray-400 leading-tight">
               Learned new skills
             </p>
           </div>
         </div>
         {/* Badge 2 com Ícone */}
-        <div className="flex-1 bg-[#1A2E26] border border-[#2A4A3A] rounded-lg p-3 flex items-center justify-center gap-3">
+        <div className="flex-1 bg-[#1A2E26] border border-[#2A4A3A] rounded-lg p-2 sm:p-3 flex items-center justify-center gap-2 sm:gap-3">
           <Image
-            src="/icon-star.webp" // 3. Caminho para o seu ícone
+            src="/icon-star.webp"
             alt="Trustpilot Star Icon"
-            width={32} // Ajuste o tamanho conforme necessário
+            width={32}
             height={32}
+            className="w-6 h-6 sm:w-8 sm:h-8" // Ícone menor no mobile
           />
           <div className="text-left">
             <p className="text-xs text-white font-bold leading-tight">
               RATED ON TRUSTPILOT
             </p>
-            <p className="text-xs text-gray-400 leading-tight">
+            <p className="text-[10px] sm:text-xs text-gray-400 leading-tight">
               4.6 Satisfaction Score
             </p>
           </div>
@@ -69,12 +73,14 @@ export default function FineloQuiz() {
 
         {/* Challenge Title */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-normal leading-tight">
+          {/* Título menor no mobile (text-3xl), e vai aumentando em telas maiores */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-normal leading-tight">
             28-DAY TRADING
             <br />
             CHALLENGE
           </h1>
-          <p className="text-gray-400 text-base font-semibold tracking-wider">
+          {/* Subtítulo menor no mobile (text-sm), maior em sm+ */}
+          <p className="text-gray-400 text-sm sm:text-base font-semibold tracking-wider">
             HAVE YOU EVER TRADED BEFORE?
           </p>
         </div>
@@ -82,12 +88,13 @@ export default function FineloQuiz() {
         {/* Action Buttons */}
         <div className="flex flex-row gap-4 mb-8 w-full max-w-md">
           <Link href="/step2" className="flex-1">
-            <Button className="w-full bg-[#9EFF00] hover:bg-[#8ee000] text-black font-bold py-6 px-8 rounded-lg text-lg">
+            {/* Texto do botão menor no mobile (text-base), maior em sm+ */}
+            <Button className="w-full bg-[#9EFF00] hover:bg-[#8ee000] text-black font-bold py-5 px-6 rounded-lg text-base sm:text-lg">
               YES ›
             </Button>
           </Link>
           <Link href="/step2" className="flex-1">
-            <Button className="w-full bg-[#9EFF00] hover:bg-[#8ee000] text-black font-bold py-6 px-8 rounded-lg text-lg">
+            <Button className="w-full bg-[#9EFF00] hover:bg-[#8ee000] text-black font-bold py-5 px-6 rounded-lg text-base sm:text-lg">
               NO ›
             </Button>
           </Link>

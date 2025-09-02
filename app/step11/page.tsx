@@ -31,7 +31,7 @@ export default function FineloQuizStep11() {
         <div className="w-full max-w-2xl">
           {/* Question */}
           <div className="text-center mb-12">
-            <h1 className="text-white text-4xl font-bold mb-4 text-balance">
+            <h1 className="text-white text-4xl font-bold mb-4 text-balance mt-3.5">
               Do you feel FOMO (Fear of missing out) when you see others making money?
             </h1>
           </div>

@@ -22,7 +22,7 @@ export default function FineloQuizStep4() {
       </header>
 
       {/* Main Content */}
-      <div className="flex items-center justify-center px-4 max-w-4xl mx-auto min-h-[80vh]">
+      <div className="flex items-center justify-center px-4 max-w-4xl mx-auto min-h-[80vh] pt-3.5 pb-3.5">
         {/* Question */}
         <div className="w-full max-w-2xl">
           <div className="mb-8 text-center">
