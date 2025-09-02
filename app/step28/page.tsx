@@ -6,10 +6,24 @@ import { useRouter } from "next/navigation"
 export default function FineloQuizStep28() {
   const router = useRouter()
   const [name, setName] = useState("")
+  const [error, setError] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleContinue = () => {
-    // Navigate to next step
-    router.push("/step29")
+  const handleContinue = (e: React.FormEvent) => {
+    e.preventDefault()
+    setError("")
+
+    // Validação para garantir que o nome não está vazio
+    if (!name.trim()) {
+      setError("Please enter your name to continue.")
+      return
+    }
+
+    setIsLoading(true)
+
+    // Codifica o nome para ser seguro na URL e o adiciona como parâmetro
+    const formattedName = encodeURIComponent(name.trim())
+    router.push(`/step29?name=${formattedName}`)
   }
 
   return (
@@ -31,27 +45,31 @@ export default function FineloQuizStep28() {
 
       {/* Main Content */}
       <div className="flex flex-col items-center justify-center px-4 min-h-[calc(100vh-80px)]">
-        {/* Title */}
         <h1 className="text-white text-3xl font-semibold text-center mb-16">What is your name?</h1>
 
-        {/* Name Input */}
-        <div className="w-full max-w-md mb-8">
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your name"
-            className="w-full bg-transparent text-white text-lg py-3 px-0 border-0 border-b-2 border-white placeholder-gray-400 focus:outline-none focus:border-green-400 transition-colors"
-          />
-        </div>
+        <form onSubmit={handleContinue} className="w-full max-w-md">
+          <div className="mb-6">
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your name"
+              className="w-full bg-transparent text-white text-lg py-3 px-0 border-0 border-b-2 border-white placeholder-gray-400 focus:outline-none focus:border-green-400 transition-colors"
+              disabled={isLoading}
+            />
+          </div>
 
-        {/* Continue Button */}
-        <button
-          onClick={handleContinue}
-          className="bg-green-500 hover:bg-green-600 text-black font-semibold py-4 px-12 rounded-lg text-lg transition-colors w-full max-w-md"
-        >
-          CONTINUE
-        </button>
+          {/* Exibe a mensagem de erro se houver */}
+          {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
+
+          <button
+            type="submit"
+            disabled={isLoading || !name.trim()}
+            className="bg-green-500 hover:bg-green-600 text-black font-semibold py-4 px-12 rounded-lg text-lg transition-colors w-full max-w-md disabled:bg-gray-600 disabled:cursor-not-allowed"
+          >
+            {isLoading ? "Saving..." : "CONTINUE"}
+          </button>
+        </form>
       </div>
     </div>
   )
