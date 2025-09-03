@@ -221,7 +221,6 @@ export default function FineloQuizStep30() {
   >
     {/* Banner "Most Popular" */}
     <div className="bg-lime-400 text-black text-sm font-bold flex items-center justify-center gap-2 py-2 rounded-t-lg">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-black"><path d="M7 10v12h-3v-12h3zm10.277-4.237c.337.337.523.791.523 1.274v8.963h-3v-8.033c0-.482-.186-.934-.523-1.271l-2.754-2.754-2.754 2.754c-.337.337-.523.79-.523 1.271v8.033h-3v-8.963c0-.483.186-.937.523-1.274l4.237-4.237 4.237 4.237zm-7.277 14.237h-2v-8h2v8zm8 0h-2v-8h2v8z"/></svg>
       <span>MOST POPULAR</span>
     </div>
     {/* Conteúdo do Card */}
