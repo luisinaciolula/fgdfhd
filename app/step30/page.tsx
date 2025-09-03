@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
+import ImageSlider from '@/components/ImageSlider'; 
 import Image from "next/image"
 
 // --- Componentes Auxiliares para um Código Mais Limpo ---
@@ -30,7 +31,7 @@ const SkillBar = ({ level, label }) => {
 const CheckListItem = ({ children }) => (
   <div className="flex items-start space-x-4">
     <div className="flex-shrink-0 mt-1">
-      <Image src="/pagina30/check-icon.svg" alt="Checkmark" width={24} height={24} />
+      <Image src="/pagina30/svgexport-6.png" alt="Checkmark" width={24} height={24} />
     </div>
     <span className="text-white text-lg">{children}</span>
   </div>
@@ -81,7 +82,7 @@ export default function FineloQuizStep30() {
             {/* Card "Now" */}
             <div className="bg-[#1C1C1E] p-6 rounded-2xl w-full max-w-sm">
               <p className="text-white text-lg font-semibold mb-4">Now</p>
-              <Image src="/pagina30/hero-now.png" alt="Current state" width={330} height={200} className="rounded-lg mb-6" />
+              <Image src="/pagina30/1-21.webp" alt="Current state" width={330} height={200} className="rounded-lg mb-6" />
               <div className="space-y-4">
                 <SkillBar label="Trading skills" level="Moderate" />
                 <SkillBar label="Financial confidence" level="Low" />
@@ -93,7 +94,7 @@ export default function FineloQuizStep30() {
             {/* Card "Goal" */}
             <div className="bg-[#1C1C1E] p-6 rounded-2xl w-full max-w-sm">
               <p className="text-white text-lg font-semibold mb-4">Goal</p>
-              <Image src="/pagina30/hero-goal.png" alt="Goal state" width={330} height={200} className="rounded-lg mb-6" />
+              <Image src="/pagina30/2-25.webp" alt="Goal state" width={330} height={200} className="rounded-lg mb-6" />
               <div className="space-y-4">
                 <SkillBar label="Trading skills" level="High" />
                 <SkillBar label="Financial confidence" level="High" />
@@ -108,12 +109,12 @@ export default function FineloQuizStep30() {
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-12">Trading is easier than you think</h2>
             <div className="flex flex-col md:flex-row items-center justify-center gap-12">
-              <Image src="/pagina30/trading-easier-man.png" alt="Man smiling" width={250} height={300} className="rounded-lg"/>
-              <Image src="/pagina30/trading-days.png" alt="Daily progress examples" width={300} height={300} />
+              <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_21frYAk7PKWPUKXqvzsGwgLLS80F/cqVWNBNZglh5v4uxkFB9Mc/public/pagina30/Image%202.webp" alt="Man smiling" width={250} height={300} className="rounded-lg"/>
+              <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_21frYAk7PKWPUKXqvzsGwgLLS80F/v2TFEw_1Dce93all5eiyv2/public/pagina30/SP%20easier%20dark.webp" alt="Daily progress examples" width={300} height={300} />
               <div className="space-y-4">
-                  <div className="flex items-center gap-3"><Image src="/pagina30/coin-icon.svg" alt="coin" width={24} height={24}/><span>You can start with $20</span></div>
-                  <div className="flex items-center gap-3"><Image src="/pagina30/hat-icon.svg" alt="hat" width={24} height={24}/><span>No need for a Finance degree</span></div>
-                  <div className="flex items-center gap-3"><Image src="/pagina30/chart-icon.svg" alt="chart" width={24} height={24}/><span>No need to be a market expert</span></div>
+                  <div className="flex items-center gap-3"><Image src="/pagina30/easier_emoji.webp" alt="coin" width={24} height={24}/><span>You can start with $20</span></div>
+                  <div className="flex items-center gap-3"><Image src="/pagina30/easier_emoji.webp" alt="hat" width={24} height={24}/><span>No need for a Finance degree</span></div>
+                  <div className="flex items-center gap-3"><Image src="/pagina30/easier_emoji.webp" alt="chart" width={24} height={24}/><span>No need to be a market expert</span></div>
               </div>
             </div>
           </div>
@@ -130,16 +131,37 @@ export default function FineloQuizStep30() {
             </div>
             
             {/* Cards de Objetivo e Target */}
-            <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-10">
-              <div className="bg-[#1C1C1E] rounded-lg p-4 text-left w-full max-w-xs">
-                <p className="text-gray-400 text-sm">✓ Your goal</p>
-                <p className="text-white font-semibold">Passive income</p>
-              </div>
-              <div className="bg-[#1C1C1E] rounded-lg p-4 text-left w-full max-w-xs">
-                <p className="text-gray-400 text-sm">✓ Your target</p>
-                <p className="text-white font-semibold">Buy a car</p>
-              </div>
-            </div>
+<div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-10">
+  
+  {/* Card "Your goal" com o ícone */}
+  <div className="bg-[#1C1C1E] rounded-lg p-4 text-left w-full max-w-xs">
+    <div className="flex items-center gap-2"> {/* Container flex para alinhar ícone e texto */}
+      <Image
+        src="/pagina30/svgexport-10.png"
+        alt="Goal icon"
+        width={20} // Ajuste a largura conforme necessário
+        height={20} // Ajuste a altura conforme necessário
+      />
+      <p className="text-gray-400 text-sm">Your goal</p> {/* Removi o "✓" */}
+    </div>
+    <p className="text-white font-semibold mt-1">Passive income</p> {/* Adicionado margem superior para espaçamento */}
+  </div>
+
+  {/* Card "Your target" com o ícone */}
+  <div className="bg-[#1C1C1E] rounded-lg p-4 text-left w-full max-w-xs">
+    <div className="flex items-center gap-2"> {/* Container flex para alinhar ícone e texto */}
+      <Image
+        src="/pagina30/svgexport-9.png"
+        alt="Target icon"
+        width={20} // Ajuste a largura conforme necessário
+        height={20} // Ajuste a altura conforme necessário
+      />
+      <p className="text-gray-400 text-sm">Your target</p> {/* Removi o "✓" */}
+    </div>
+    <p className="text-white font-semibold mt-1">Buy a car</p> {/* Adicionado margem superior para espaçamento */}
+  </div>
+
+</div>
             
             {/* Planos de Preços */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
@@ -164,18 +186,52 @@ export default function FineloQuizStep30() {
               </div>
             </div>
             
-            <p className="text-gray-400 text-sm mb-6 max-w-lg mx-auto">
-              People using plan for 3 months achieve twice as many results as for 1 month
-              <br/>*According to a research by Finelo, 2023
-            </p>
+            {/* Container principal que substitui o <p> original */}
+<div className="text-gray-400 text-sm mb-6 max-w-lg mx-auto">
+  
+  {/* Container Flex para alinhar o ícone e a primeira linha de texto */}
+  <div className="flex items-start gap-2">
+    <Image
+      src="/pagina30/svgexport-9.png"
+      alt="Info icon"
+      width={16}
+      height={16}
+      className="mt-0.5 flex-shrink-0" // Margem para alinhar com o texto e evitar que o ícone encolha
+    />
+    <span className="text-white">
+      People using plan for 3 months achieve twice as many results as for 1 month
+    </span>
+  </div>
+
+  {/* Segunda linha de texto, agora em um parágrafo separado */}
+  <p className="mt-2 text-xs text-slate-300">
+    *According to a research by Finelo, 2023
+  </p>
+
+</div>
 
             <button className="bg-lime-400 text-black font-bold py-4 px-8 rounded-lg text-xl mb-6 w-full max-w-md hover:bg-lime-500 transition-colors">GET MY PLAN</button>
 
-            <div className="text-gray-400 text-xs mb-4">Pay safe & secure</div>
+            <div className="flex w-full items-center justify-center mb-4">
+
+  {/* O "botão" não clicável com o estilo desejado */}
+  <div className="flex flex-row items-center gap-2 rounded-lg bg-[#F2F9ED] py-1.5 px-3">
+    <Image
+      src="/pagina30/svgexport-10.png"
+      alt="Secure payment icon"
+      width={16}
+      height={16}
+    />
+    <p className="text-sm font-medium text-[#7ABF4C]">
+      Pay safe & secure
+    </p>
+  </div>
+
+</div>
             <div className="flex justify-center items-center space-x-4 mb-4">
-              <Image src="/pagina30/payment-methods.png" alt="Payment methods" width={250} height={25} />
+              <Image src="/pagina30/payment_methods.webp" alt="Payment methods" width={250} height={25} />
             </div>
-            <p className="text-gray-600 text-xs max-w-lg mx-auto">
+            <p className="text-xs max-w-lg mx-auto text-slate-200">
               By clicking "Get My Plan", you agree to automatic renewal of your subscription for €39.99, then €39.99 every 4 weeks (both excluding taxes) until you cancel. You can cancel anytime via support or account settings. See Subscription Terms for details.
             </p>
           </div>
@@ -184,7 +240,7 @@ export default function FineloQuizStep30() {
         {/* Seção Garantia */}
         <section className="bg-lime-400 py-16 text-black">
           <div className="container mx-auto px-4 text-center flex flex-col items-center">
-            <Image src="/pagina30/guarantee-badge.png" alt="Money-Back Guarantee" width={100} height={100} className="mb-6"/>
+            <Image src="/pagina30/svgexport-11.png" alt="Money-Back Guarantee" width={100} height={100} className="mb-6"/>
             <h2 className="text-3xl font-bold mb-4">Money-Back Guarantee</h2>
             <p className="max-w-3xl mx-auto">
               We are so confident in our service that we are ready to offer a full refund within 30 days of your first purchase OR before the end of your first subscription period, whichever comes first. Additional terms and conditions apply.
@@ -193,14 +249,15 @@ export default function FineloQuizStep30() {
           </div>
         </section>
 
-        {/* Seção "Access Anywhere" */}
+         {/* Seção "Access Anywhere" */}
         <section className="bg-black py-16">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-white text-3xl font-bold mb-4">Access Finelo anywhere</h2>
-            <h3 className="text-gray-400 text-xl mb-10">using your mobile device</h3>
+            <h2 className="text-white text-3xl font-bold mb-4">Access Finelo anywhere using your mobile device </h2>
+            
             <Image src="/pagina30/mobile-mockups.png" alt="Finelo on mobile devices" width={800} height={400} className="mx-auto" />
           </div>
         </section>
+
 
         {/* Seção Final "What you get" e Testimonials */}
         <section className="bg-black pt-8 pb-16">
