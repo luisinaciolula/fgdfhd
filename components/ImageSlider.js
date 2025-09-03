@@ -1,133 +1,71 @@
 // components/ImageSlider.js
+"use client";
 
-"use client"; // Essencial, pois o slider é um componente interativo
-
-import React from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Importe os componentes e módulos do Swiper
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination, Autoplay, Navigation } from 'swiper/modules';
+const ImageSlider = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-// Importe os estilos do Swiper
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+  const goToPrevious = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? images.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
 
-// Array com os caminhos das suas imagens
-// Certifique-se que estes caminhos estão corretos e as imagens existem na pasta 'public'
-const images = [
-  '/pagina30/finelo_appoverview_en_1-1.jpg', // Exemplo 1
-  '/pagina30/finelo_appoverview_en_2.jpg', // Exemplo 2
-  '/pagina30/finelo_appoverview_en_3.jpg', // Exemplo 3
-  '/pagina30/finelo_appoverview_en_4.jpg', // Exemplo 4
-  '/pagina30/finelo_appoverview_en_5.jpg', // Exemplo 5
-];
+  const goToNext = () => {
+    const isLastSlide = currentIndex === images.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
 
-export default function ImageSlider() {
   return (
     <div className="relative w-full max-w-4xl mx-auto">
-      <Swiper
-        effect={'coverflow'}
-        grabCursor={true}
-        centeredSlides={true}
-        loop={true}
-        slidesPerView={'auto'}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 100,
-          modifier: 2.5,
-          slideShadows: false,
-        }}
-        pagination={{ el: '.swiper-pagination', clickable: true }}
-        navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }}
-        autoplay={{
-          delay: 3500,
-          disableOnInteraction: false,
-        }}
-        modules={[EffectCoverflow, Pagination, Autoplay, Navigation]}
-        className="mySwiper"
+      <div className="overflow-hidden rounded-lg">
+        <div
+          className="flex transition-transform ease-in-out duration-500"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {images.map((src, index) => (
+            <div className="flex-shrink-0 w-full" key={index}>
+              <Image
+                src={src}
+                alt={`Slide ${index + 1}`}
+                width={800}
+                height={400}
+                className="mx-auto object-contain" // object-contain pode ser melhor para screenshots
+              /> {/* Certifique-se que esta tag termina com '/>' */}
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Botão Esquerda */}
+      <button
+        onClick={goToPrevious}
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition"
       >
-        {images.map((src, index) => (
-          <SwiperSlide key={index} style={{ width: '250px', height: '500px' }}>
-            <Image
-              src={src}
-              alt={`Finelo on mobile - slide ${index + 1}`}
-              width={250}
-              height={500}
-              className="rounded-2xl object-contain"
-            />
-          </SwiperSlide>
+        <ChevronLeft size={24} /> {/* Certifique-se que esta tag termina com '/>' */}
+      </button>
+      {/* Botão Direita */}
+      <button
+        onClick={goToNext}
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition"
+      >
+        <ChevronRight size={24} /> {/* Certifique-se que esta tag termina com '/>' */}
+      </button>
+      {/* Indicadores */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-white' : 'bg-gray-400'}`}
+          /> /* Note que este button também é auto-fechado com '/>' */
         ))}
-      </Swiper>
-
-      {/* Controles de navegação e paginação personalizados */}
-      <div className="swiper-pagination"></div>
-      <div className="swiper-button-prev"></div>
-      <div className="swiper-button-next"></div>
-
-      {/* Bloco de Estilos Corrigido */}
-      <style jsx global>{`
-        .mySwiper {
-          width: 100%;
-          padding: 50px 0;
-        }
-
-        .swiper-slide {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: transform 0.4s ease-in-out;
-          opacity: 0.5;
-        }
-
-        .swiper-slide-active {
-          transform: scale(1.15);
-          z-index: 1;
-          opacity: 1;
-        }
-        
-        /* Estilização da Paginação (bolinhas) */
-        .swiper-pagination {
-            position: absolute;
-            bottom: 20px !important;
-            left: 50%;
-            transform: translateX(-50%);
-            width: auto !important;
-        }
-
-        .swiper-pagination-bullet {
-          width: 10px;
-          height: 10px;
-          background-color: #a8a8a8;
-          opacity: 1;
-          margin: 0 5px !important;
-        }
-
-        .swiper-pagination-bullet-active {
-          background-color: #34d399; /* Cor verde Finelo */
-        }
-        
-        /* Estilização das Setas de Navegação */
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: #ffffff; /* Cor branca para as setas */
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-        }
-        .swiper-button-next:after,
-        .swiper-button-prev:after {
-            font-size: 18px !important;
-            font-weight: 800;
-        }
-      `}</style>
+      </div>
     </div>
   );
-}
+};
+
+export default ImageSlider;

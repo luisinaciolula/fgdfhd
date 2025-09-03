@@ -6,7 +6,13 @@ import ImageSlider from '@/components/ImageSlider';
 import Image from "next/image"
 
 // --- Componentes Auxiliares para um Código Mais Limpo ---
-
+const images = [
+  '/pagina30/finelo_appoverview_en_1-1.jpg',
+  '/pagina30/finelo_appoverview_en_2.jpg',
+  '/pagina30/finelo_appoverview_en_3.jpg',
+  '/pagina30/finelo_appoverview_en_4.jpg',
+  '/pagina30/finelo_appoverview_en_5.jpg',
+];
 // Componente para a barra de skills na seção Hero
 const SkillBar = ({ level, label }) => {
   const percentage = level === 'Low' ? '20%' : level === 'Moderate' ? '50%' : '100%';
@@ -249,7 +255,7 @@ export default function FineloQuizStep30() {
           </div>
         </section>
 
-         {/* Seção "Access Anywhere" */}
+   {/* Seção "Access Anywhere" */}
         <section className="bg-black py-16">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-white text-3xl font-bold mb-4">Access Finelo anywhere using your mobile device </h2>
