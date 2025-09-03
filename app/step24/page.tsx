@@ -1,9 +1,16 @@
-"use client"
+// app/step24/page.js - CÓDIGO CORRIGIDO E ATUALIZADO
 
 import Link from "next/link"
-import Image from "next/image" // 1. Importar o componente Image
+import Image from "next/image"
+import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 
-export default function FineloQuizStep24() {
+// Componente Cliente que lê os parâmetros da URL.
+// Toda a lógica que precisa do navegador vai aqui.
+function QuizPageContent() {
+  const searchParams = useSearchParams()
+  const userGoal = searchParams.get('goal') || 'Your Goal' // Agora vai funcionar
+
   return (
     <div className="min-h-screen bg-black text-white flex flex-col p-4">
       {/* Header */}
@@ -31,22 +38,21 @@ export default function FineloQuizStep24() {
             <span className="underline">Confident Trader</span> by Nov, 2025
           </h2>
 
-          {/* Goal Section */}
+          {/* Goal Section - O valor será exibido corretamente aqui */}
           <div className="mb-8">
             <div className="bg-gray-800 px-4 py-2 rounded-lg inline-block">
               <span className="text-white text-sm">Your goal: </span>
-              <span className="text-white font-semibold">A perfect wedding</span>
+              <span className="text-white font-semibold">{userGoal}</span>
             </div>
           </div>
 
-          {/* 2. Seção do gráfico removida e substituída pela imagem */}
           <div className="w-full max-w-md my-12 mx-auto">
             <Image
               src="/chart.png"
               alt="Chart showing progress from Beginner to Confident Trader"
-              width={500} // Largura intrínseca da imagem
-              height={250} // Altura intrínseca da imagem
-              className="w-full h-auto" // Classes para tornar a imagem responsiva
+              width={500}
+              height={250}
+              className="w-full h-auto"
             />
           </div>
         </div>
@@ -61,5 +67,18 @@ export default function FineloQuizStep24() {
         </Link>
       </footer>
     </div>
+  )
+}
+
+
+// Componente da Página Principal que envolve o componente cliente com Suspense.
+// Note que este componente não tem o "use client" no topo.
+export default function FineloQuizStep24() {
+  return (
+    // Suspense garante que o conteúdo interno só será renderizado
+    // quando estiver pronto, evitando o problema de hidratação.
+    <Suspense fallback={<div>Loading...</div>}>
+      <QuizPageContent />
+    </Suspense>
   )
 }
