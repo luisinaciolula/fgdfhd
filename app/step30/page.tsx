@@ -13,7 +13,7 @@ const images = [
   '/pagina30/finelo_appoverview_en_4.jpg',
   '/pagina30/finelo_appoverview_en_5.jpg',
 ];
-// Componente para a barra de skills na seção Hero
+
 const SkillBar = ({ level, label }) => {
   const percentage = level === 'Low' ? '20%' : level === 'Moderate' ? '50%' : '100%';
   const color = level === 'High' ? 'bg-green-500' : 'bg-gradient-to-r from-red-500 via-yellow-400 to-green-500';
@@ -49,7 +49,7 @@ export default function FineloQuizStep30() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [timeLeft, setTimeLeft] = useState({ minutes: 9, seconds: 54 })
-
+  const [selectedPlan, setSelectedPlan] = useState('4-week'); // Define o plano popular como padrão
   const nameFromUrl = searchParams.get("name") || "promo"
   const couponCode = `${nameFromUrl.toLowerCase().replace(/\s+/g, "")}_set25`
 
@@ -143,62 +143,142 @@ export default function FineloQuizStep30() {
               <CheckListItem>Master everything to become an intelligent trader</CheckListItem>
               <CheckListItem>Know key trading terms and rules</CheckListItem>
             </div>
-            
-            {/* Cards de Objetivo e Target */}
-<div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-10">
   
-  {/* Card "Your goal" com o ícone */}
-  <div className="bg-[#1C1C1E] rounded-lg p-4 text-left w-full max-w-xs">
-    <div className="flex items-center gap-2"> {/* Container flex para alinhar ícone e texto */}
-      <Image
-        src="/pagina30/svgexport-10.png"
-        alt="Goal icon"
-        width={20} // Ajuste a largura conforme necessário
-        height={20} // Ajuste a altura conforme necessário
-      />
-      <p className="text-gray-400 text-sm">Your goal</p> {/* Removi o "✓" */}
+{/* Cards de Objetivo e Target - AJUSTADO PARA O ESTILO DA IMAGEM */}
+<div className="container mx-auto px-4 max-w-3xl"> {/* Wrapper para controlar a largura máxima */}
+  <div className="flex flex-row gap-4 justify-center items-stretch mb-10">
+    
+    {/* Card "Your goal" - Estilo Retangular */}
+    <div className="bg-[#1C1C1E] rounded-lg px-5 py-4 flex flex-row items-center justify-between w-1/2">
+      {/* Grupo Esquerda: Ícone e Label */}
+      <div className="flex items-center gap-3">
+        <Image
+          src="/pagina30/svgexport-10.png" // Ícone de escudo
+          alt="Goal icon"
+          width={20}
+          height={20}
+        />
+        <p className="text-gray-400 text-sm">Your goal</p>
+      </div>
+      {/* Grupo Direita: Valor */}
+      <p className="text-white font-bold text-lg">Grow wealth</p>
     </div>
-    <p className="text-white font-semibold mt-1">Passive income</p> {/* Adicionado margem superior para espaçamento */}
+
+    {/* Card "Your target" - Estilo Retangular */}
+    <div className="bg-[#1C1C1E] rounded-lg px-5 py-4 flex flex-row items-center justify-between w-1/2">
+      {/* Grupo Esquerda: Ícone e Label */}
+      <div className="flex items-center gap-3">
+        <Image
+          src="/pagina30/svgexport-9.png" // Ícone de alvo
+          alt="Target icon"
+          width={20}
+          height={20}
+        />
+        <p className="text-gray-400 text-sm">Your target</p>
+      </div>
+      {/* Grupo Direita: Valor */}
+      <p className="text-white font-bold text-lg">Vacation</p>
+    </div>
+
+  </div>
+</div>
+            
+           {/* Planos de Preços - ATUALIZADO PARA CORRESPONDER À IMAGEM */}
+<div className="flex flex-col gap-4 max-w-xl mx-auto mb-8">
+
+  {/* 1-WEEK PLAN */}
+  <div 
+    onClick={() => setSelectedPlan('1-week')}
+    className={`bg-[#1C1C1E] rounded-xl p-5 border-2 transition-all cursor-pointer flex items-center justify-between ${selectedPlan === '1-week' ? 'border-lime-400' : 'border-transparent hover:border-gray-600'}`}
+  >
+    {/* Lado Esquerdo: Radio + Textos */}
+    <div className="flex items-center gap-4">
+      {/* Círculo de seleção (Radio) */}
+      <div className={`w-6 h-6 rounded-full border-2 ${selectedPlan === '1-week' ? 'border-lime-400' : 'border-gray-600'} flex items-center justify-center flex-shrink-0`}>
+        {selectedPlan === '1-week' && <div className="w-3 h-3 bg-lime-400 rounded-full"></div>}
+      </div>
+      {/* Título e Preço Total */}
+      <div>
+        <h3 className="text-white font-bold">1-WEEK PLAN</h3>
+        <p className="text-gray-400 text-sm">€13.86</p>
+      </div>
+    </div>
+    {/* Lado Direito: Preço por dia */}
+    <div className="flex flex-col items-end">
+      <div className="flex items-baseline text-white font-bold">
+        <span className="text-xl">€</span>
+        <span className="text-4xl tracking-tighter">1</span>
+        <span className="text-xl font-semibold">98</span>
+      </div>
+      <p className="text-gray-400 text-sm -mt-1">per day</p>
+    </div>
   </div>
 
-  {/* Card "Your target" com o ícone */}
-  <div className="bg-[#1C1C1E] rounded-lg p-4 text-left w-full max-w-xs">
-    <div className="flex items-center gap-2"> {/* Container flex para alinhar ícone e texto */}
-      <Image
-        src="/pagina30/svgexport-9.png"
-        alt="Target icon"
-        width={20} // Ajuste a largura conforme necessário
-        height={20} // Ajuste a altura conforme necessário
-      />
-      <p className="text-gray-400 text-sm">Your target</p> {/* Removi o "✓" */}
+  {/* 4-WEEK PLAN (O mais popular) */}
+  <div 
+    onClick={() => setSelectedPlan('4-week')}
+    className={`bg-[#1C1C1E] rounded-xl border-2 transition-all cursor-pointer ${selectedPlan === '4-week' ? 'border-lime-400' : 'border-transparent hover:border-gray-600'}`}
+  >
+    {/* Banner "Most Popular" */}
+    <div className="bg-lime-400 text-black text-sm font-bold flex items-center justify-center gap-2 py-2 rounded-t-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-black"><path d="M7 10v12h-3v-12h3zm10.277-4.237c.337.337.523.791.523 1.274v8.963h-3v-8.033c0-.482-.186-.934-.523-1.271l-2.754-2.754-2.754 2.754c-.337.337-.523.79-.523 1.271v8.033h-3v-8.963c0-.483.186-.937.523-1.274l4.237-4.237 4.237 4.237zm-7.277 14.237h-2v-8h2v8zm8 0h-2v-8h2v8z"/></svg>
+      <span>MOST POPULAR</span>
     </div>
-    <p className="text-white font-semibold mt-1">Buy a car</p> {/* Adicionado margem superior para espaçamento */}
+    {/* Conteúdo do Card */}
+    <div className="p-5 flex items-center justify-between">
+      {/* Lado Esquerdo */}
+      <div className="flex items-center gap-4">
+        {/* Círculo de seleção (Radio) */}
+        <div className={`w-6 h-6 rounded-full border-2 ${selectedPlan === '4-week' ? 'border-lime-400' : 'border-gray-600'} flex items-center justify-center flex-shrink-0`}>
+          {selectedPlan === '4-week' && <div className="w-3 h-3 bg-lime-400 rounded-full"></div>}
+        </div>
+        {/* Título e Preço Total */}
+        <div>
+          <h3 className="text-white font-bold">4-WEEK PLAN</h3>
+          <p className="text-gray-400 text-sm">€39.99</p>
+        </div>
+      </div>
+      {/* Lado Direito */}
+      <div className="flex flex-col items-end">
+        <div className="flex items-baseline text-white font-bold">
+          <span className="text-xl">€</span>
+          <span className="text-4xl tracking-tighter">1</span>
+          <span className="text-xl font-semibold">43</span>
+        </div>
+        <p className="text-gray-400 text-sm -mt-1">per day</p>
+      </div>
+    </div>
+  </div>
+
+  {/* 12-WEEK PLAN */}
+  <div 
+    onClick={() => setSelectedPlan('12-week')}
+    className={`bg-[#1C1C1E] rounded-xl p-5 border-2 transition-all cursor-pointer flex items-center justify-between ${selectedPlan === '12-week' ? 'border-lime-400' : 'border-transparent hover:border-gray-600'}`}
+  >
+    {/* Lado Esquerdo */}
+    <div className="flex items-center gap-4">
+      {/* Círculo de seleção (Radio) */}
+      <div className={`w-6 h-6 rounded-full border-2 ${selectedPlan === '12-week' ? 'border-lime-400' : 'border-gray-600'} flex items-center justify-center flex-shrink-0`}>
+        {selectedPlan === '12-week' && <div className="w-3 h-3 bg-lime-400 rounded-full"></div>}
+      </div>
+      {/* Título e Preço Total */}
+      <div>
+        <h3 className="text-white font-bold">12-WEEK PLAN</h3>
+        <p className="text-gray-400 text-sm">€79.99</p>
+      </div>
+    </div>
+    {/* Lado Direito */}
+    <div className="flex flex-col items-end">
+      <div className="flex items-baseline text-white font-bold">
+        <span className="text-xl">€</span>
+        <span className="text-4xl tracking-tighter">0</span>
+        <span className="text-xl font-semibold">95</span>
+      </div>
+      <p className="text-gray-400 text-sm -mt-1">per day</p>
+    </div>
   </div>
 
 </div>
-            
-            {/* Planos de Preços */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
-              <div className="bg-[#1C1C1E] rounded-xl p-6 border-2 border-transparent hover:border-lime-400 transition-all cursor-pointer">
-                <h3 className="text-white font-bold mb-4">1-WEEK PLAN</h3>
-                <p className="text-gray-400 text-sm">€13.86</p>
-                <hr className="border-gray-700 my-4" />
-                <p><span className="text-white text-4xl font-bold">€1.98</span> <span className="text-gray-400">per day</span></p>
-              </div>
-              <div className="bg-[#1C1C1E] rounded-xl p-6 border-2 border-lime-400 relative transform md:scale-110">
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-lime-400 text-black px-3 py-1 rounded-full text-xs font-bold">MOST POPULAR</div>
-                <h3 className="text-white font-bold mb-4">4-WEEK PLAN</h3>
-                <p className="text-gray-400 text-sm">€39.99</p>
-                <hr className="border-gray-700 my-4" />
-                <p><span className="text-white text-4xl font-bold">€1.43</span> <span className="text-gray-400">per day</span></p>
-              </div>
-              <div className="bg-[#1C1C1E] rounded-xl p-6 border-2 border-transparent hover:border-lime-400 transition-all cursor-pointer">
-                <h3 className="text-white font-bold mb-2">12-WEEK PLAN</h3>
-                <p className="text-gray-400 text-sm">€79.99</p>
-                <hr className="border-gray-700 my-4" />
-                <p><span className="text-white text-4xl font-bold">€0.95</span> <span className="text-gray-400">per day</span></p>
-              </div>
-            </div>
             
             {/* Container principal que substitui o <p> original */}
 <div className="text-gray-400 text-sm mb-6 max-w-lg mx-auto">
