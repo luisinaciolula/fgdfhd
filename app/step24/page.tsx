@@ -1,16 +1,24 @@
-// app/step24/page.js - CÓDIGO CORRIGIDO E ATUALIZADO
+"use client" // 1. O arquivo inteiro precisa ser um Componente Cliente
 
 import Link from "next/link"
 import Image from "next/image"
-import { useSearchParams } from 'next/navigation'
+// 2. Importe 'Suspense' do React e 'useSearchParams' do Next.js
 import { Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 
-// Componente Cliente que lê os parâmetros da URL.
-// Toda a lógica que precisa do navegador vai aqui.
-function QuizPageContent() {
+// 3. Crie um componente interno SÓ para ler e exibir o objetivo.
+//    Isso isola a lógica que depende da URL.
+function GoalDisplay() {
   const searchParams = useSearchParams()
-  const userGoal = searchParams.get('goal') || 'Your Goal' // Agora vai funcionar
+  const userGoal = searchParams.get('goal') || 'Your Goal'
+  
+  return (
+    <span className="text-white font-semibold">{userGoal}</span>
+  )
+}
 
+// Seu componente de página principal
+export default function FineloQuizStep24() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col p-4">
       {/* Header */}
@@ -38,11 +46,15 @@ function QuizPageContent() {
             <span className="underline">Confident Trader</span> by Nov, 2025
           </h2>
 
-          {/* Goal Section - O valor será exibido corretamente aqui */}
+          {/* Goal Section */}
           <div className="mb-8">
             <div className="bg-gray-800 px-4 py-2 rounded-lg inline-block">
               <span className="text-white text-sm">Your goal: </span>
-              <span className="text-white font-semibold">{userGoal}</span>
+              {/* 4. Envolva o componente dinâmico com Suspense. */}
+              {/*    Isso corrige o erro de build e o piscar do conteúdo padrão. */}
+              <Suspense fallback={<span className="font-semibold">...</span>}>
+                <GoalDisplay />
+              </Suspense>
             </div>
           </div>
 
@@ -67,18 +79,5 @@ function QuizPageContent() {
         </Link>
       </footer>
     </div>
-  )
-}
-
-
-// Componente da Página Principal que envolve o componente cliente com Suspense.
-// Note que este componente não tem o "use client" no topo.
-export default function FineloQuizStep24() {
-  return (
-    // Suspense garante que o conteúdo interno só será renderizado
-    // quando estiver pronto, evitando o problema de hidratação.
-    <Suspense fallback={<div>Loading...</div>}>
-      <QuizPageContent />
-    </Suspense>
   )
 }
