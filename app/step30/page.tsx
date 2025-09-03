@@ -82,11 +82,12 @@ export default function FineloQuizStep30() {
       </header>
 
       <main>
-        {/* Seção Hero */}
+         {/* Seção Hero - MODIFICADA                                           */}
+        {/* ================================================================== */}
         <section className="bg-black py-16">
-          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-4">
+          <div className="container mx-auto px-4 flex flex-row items-stretch justify-center gap-2 md:gap-4">
             {/* Card "Now" */}
-            <div className="bg-[#1C1C1E] p-6 rounded-2xl w-full max-w-sm">
+            <div className="bg-[#1C1C1E] p-3 md:p-6 rounded-2xl w-1/2">
               <p className="text-white text-lg font-semibold mb-4">Now</p>
               <Image src="/pagina30/1-21.webp" alt="Current state" width={330} height={200} className="rounded-lg mb-6" />
               <div className="space-y-4">
@@ -95,10 +96,10 @@ export default function FineloQuizStep30() {
               </div>
             </div>
 
-            <div className="text-lime-400 text-6xl font-thin hidden md:block mx-4">→</div>
-            
+            <div className="text-lime-400 text-6xl font-thin hidden md:flex items-center mx-4">→</div>
+
             {/* Card "Goal" */}
-            <div className="bg-[#1C1C1E] p-6 rounded-2xl w-full max-w-sm">
+            <div className="bg-[#1C1C1E] p-3 md:p-6 rounded-2xl w-1/2">
               <p className="text-white text-lg font-semibold mb-4">Goal</p>
               <Image src="/pagina30/2-25.webp" alt="Goal state" width={330} height={200} className="rounded-lg mb-6" />
               <div className="space-y-4">
@@ -110,13 +111,20 @@ export default function FineloQuizStep30() {
           <p className="text-center text-gray-500 text-xs mt-4">This is not a guarantee or promise of results.</p>
         </section>
 
-        {/* Seção "Trading is easier" */}
+         {/* Seção "Trading is easier" - MODIFICADA                           */}
+        {/* ================================================================== */}
         <section className="bg-lime-400 py-16 text-black">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-12">Trading is easier than you think</h2>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-12">
-              <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_21frYAk7PKWPUKXqvzsGwgLLS80F/cqVWNBNZglh5v4uxkFB9Mc/public/pagina30/Image%202.webp" alt="Man smiling" width={250} height={300} className="rounded-lg"/>
-              <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_21frYAk7PKWPUKXqvzsGwgLLS80F/v2TFEw_1Dce93all5eiyv2/public/pagina30/SP%20easier%20dark.webp" alt="Daily progress examples" width={300} height={300} />
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+              
+              {/* Wrapper para as duas imagens ficarem lado a lado no mobile */}
+              <div className="flex flex-row items-stretch w-full max-w-lg md:max-w-xl gap-4">
+                  <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_21frYAk7PKWPUKXqvzsGwgLLS80F/cqVWNBNZglh5v4uxkFB9Mc/public/pagina30/Image%202.webp" alt="Man smiling" width={250} height={300} className="rounded-lg w-1/2 object-cover"/>
+                  <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_21frYAk7PKWPUKXqvzsGwgLLS80F/v2TFEw_1Dce93all5eiyv2/public/pagina30/SP%20easier%20dark.webp" alt="Daily progress examples" width={300} height={300} className="w-1/2 object-contain" />
+              </div>
+
+              {/* Bloco de texto */}
               <div className="space-y-4">
                   <div className="flex items-center gap-3"><Image src="/pagina30/easier_emoji.webp" alt="coin" width={24} height={24}/><span>You can start with $20</span></div>
                   <div className="flex items-center gap-3"><Image src="/pagina30/easier_emoji.webp" alt="hat" width={24} height={24}/><span>No need for a Finance degree</span></div>
