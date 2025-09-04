@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
-import ImageSlider from '@/components/ImageSlider'; 
+import ImageSlider from '@/components/ImageSlider';
 import Image from "next/image"
 
 // --- Componentes Auxiliares para um Código Mais Limpo ---
@@ -17,14 +17,14 @@ const images = [
 const SkillBar = ({ level, label }) => {
   const percentage = level === 'Low' ? '20%' : level === 'Moderate' ? '50%' : '100%';
   const color = level === 'High' ? 'bg-green-500' : 'bg-gradient-to-r from-red-500 via-yellow-400 to-green-500';
-  
+
   return (
     <div>
       <p className="text-white text-sm mb-2 font-semibold">{label}</p>
       <div className="w-full h-2 bg-gray-600 rounded-full relative">
         <div className={`h-2 rounded-full ${color}`} style={{ width: percentage }}></div>
-        <div 
-          className="absolute top-1/2 -mt-2 w-4 h-4 rounded-full bg-white border-2 border-gray-900" 
+        <div
+          className="absolute top-1/2 -mt-2 w-4 h-4 rounded-full bg-white border-2 border-gray-900"
           style={{ left: `calc(${percentage} - 8px)` }}
         ></div>
       </div>
@@ -53,6 +53,14 @@ export default function FineloQuizStep30() {
   const nameFromUrl = searchParams.get("name") || "promo"
   const couponCode = `${nameFromUrl.toLowerCase().replace(/\s+/g, "")}_set25`
 
+   // --- INÍCIO DA MODIFICAÇÃO: Objeto com os textos dinâmicos ---
+  const subscriptionTerms = {
+    '1-week': 'By clicking "Get My Plan", you agree to automatic subscription renewal to Finelo: first week at €13.86, then €39.99 every 4 weeks (both excluding taxes) until you cancel. You can cancel anytime via support or account settings. See Subscription Terms for details.',
+    '4-week': 'By clicking "Get My Plan", you agree to automatic subscription renewal to Finelo: first 4 weeks at €39.99, then €39.99 every 4 weeks (both excluding taxes) until you cancel. You can cancel anytime via support or account settings. See Subscription Terms for details.',
+    '12-week': 'By clicking "Get My Plan", you agree to automatic subscription renewal to Finelo: first 12 weeks at €79.99, then €79.99 every 12 weeks (both excluding taxes) until you cancel. You can cancel anytime via support or account settings. See Subscription Terms for details.'
+  };
+  // --- FIM DA MODIFICAÇÃO ---
+
   useEffect(() => {
     if (timeLeft.minutes === 0 && timeLeft.seconds === 0) return;
     const timer = setInterval(() => {
@@ -65,7 +73,7 @@ export default function FineloQuizStep30() {
     return () => clearInterval(timer)
   }, [timeLeft])
 
-  const formatTime = (time: number) => time.toString().padStart(2, "0")
+  const formatTime = (time) => time.toString().padStart(2, "0")
 
   return (
     <div className="min-h-screen bg-black text-white font-sans">
@@ -75,7 +83,8 @@ export default function FineloQuizStep30() {
           <div className="text-green-400 text-2xl font-bold">
             <span className="text-white">F</span>inelo
           </div>
-          <a href="#pricing" className="bg-lime-400 text-black px-5 py-2.5 rounded-lg font-bold text-sm hover:bg-lime-500 transition-colors">
+          {/* BOTÃO 1 MODIFICADO */}
+          <a href="#pricing" className="bg-lime-400 text-black px-5 py-2.5 rounded-lg font-bold text-sm hover:bg-lime-500 transition-colors pulse-animation">
             GET MY PLAN
           </a>
         </div>
@@ -117,7 +126,7 @@ export default function FineloQuizStep30() {
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-12">Trading is easier than you think</h2>
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-              
+
               {/* Wrapper para as duas imagens ficarem lado a lado no mobile */}
               <div className="flex flex-row items-stretch w-full max-w-lg md:max-w-xl gap-4">
                   <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_21frYAk7PKWPUKXqvzsGwgLLS80F/cqVWNBNZglh5v4uxkFB9Mc/public/pagina30/Image%202.webp" alt="Man smiling" width={250} height={300} className="rounded-lg w-1/2 object-cover"/>
@@ -133,7 +142,7 @@ export default function FineloQuizStep30() {
             </div>
           </div>
         </section>
-        
+
         {/* Seção "Try Finelo" & Preços */}
         <section id="pricing" className="bg-black py-16">
           <div className="container mx-auto px-4 text-center">
@@ -143,11 +152,11 @@ export default function FineloQuizStep30() {
               <CheckListItem>Master everything to become an intelligent trader</CheckListItem>
               <CheckListItem>Know key trading terms and rules</CheckListItem>
             </div>
-  
+
 {/* Cards de Objetivo e Target - AJUSTADO PARA O ESTILO DA IMAGEM */}
 <div className="container mx-auto px-4 max-w-3xl"> {/* Wrapper para controlar a largura máxima */}
   <div className="flex flex-row gap-4 justify-center items-stretch mb-10">
-    
+
     {/* Card "Your goal" - Estilo Retangular */}
     <div className="bg-[#1C1C1E] rounded-lg px-5 py-4 flex flex-row items-center justify-between w-1/2">
       {/* Grupo Esquerda: Ícone e Label */}
@@ -182,12 +191,12 @@ export default function FineloQuizStep30() {
 
   </div>
 </div>
-            
+
            {/* Planos de Preços - ATUALIZADO PARA CORRESPONDER À IMAGEM */}
 <div className="flex flex-col gap-4 max-w-xl mx-auto mb-8">
 
   {/* 1-WEEK PLAN */}
-  <div 
+  <div
     onClick={() => setSelectedPlan('1-week')}
     className={`bg-[#1C1C1E] rounded-xl p-5 border-2 transition-all cursor-pointer flex items-center justify-between ${selectedPlan === '1-week' ? 'border-lime-400' : 'border-transparent hover:border-gray-600'}`}
   >
@@ -215,7 +224,7 @@ export default function FineloQuizStep30() {
   </div>
 
   {/* 4-WEEK PLAN (O mais popular) */}
-  <div 
+  <div
     onClick={() => setSelectedPlan('4-week')}
     className={`bg-[#1C1C1E] rounded-xl border-2 transition-all cursor-pointer ${selectedPlan === '4-week' ? 'border-lime-400' : 'border-transparent hover:border-gray-600'}`}
   >
@@ -250,7 +259,7 @@ export default function FineloQuizStep30() {
   </div>
 
   {/* 12-WEEK PLAN */}
-  <div 
+  <div
     onClick={() => setSelectedPlan('12-week')}
     className={`bg-[#1C1C1E] rounded-xl p-5 border-2 transition-all cursor-pointer flex items-center justify-between ${selectedPlan === '12-week' ? 'border-lime-400' : 'border-transparent hover:border-gray-600'}`}
   >
@@ -278,10 +287,10 @@ export default function FineloQuizStep30() {
   </div>
 
 </div>
-            
+
             {/* Container principal que substitui o <p> original */}
 <div className="text-gray-400 text-sm mb-6 max-w-lg mx-auto">
-  
+
   {/* Container Flex para alinhar o ícone e a primeira linha de texto */}
   <div className="flex items-start gap-2">
     <Image
@@ -296,14 +305,19 @@ export default function FineloQuizStep30() {
     </span>
   </div>
 
-  {/* Segunda linha de texto, agora em um parágrafo separado */}
+  <p className="text-xs max-w-lg mx-auto text-slate-200 pt-2 pb-2 mt-1 border-solid border-[0.5px] rounded-sm border-[rgba(43,43,45,1)] pl-1 pr-1">
+      {subscriptionTerms[selectedPlan]}
+  </p>
+
   <p className="mt-2 text-xs text-slate-300">
     *According to a research by Finelo, 2023
   </p>
 
 </div>
-
-            <button className="bg-lime-400 text-black font-bold py-4 px-8 rounded-lg text-xl mb-6 w-full max-w-md hover:bg-lime-500 transition-colors">GET MY PLAN</button>
+            {/* BOTÃO 2 MODIFICADO */}
+            <button className="bg-lime-400 text-black font-bold py-4 px-8 rounded-lg text-xl mb-6 w-full max-w-md hover:bg-lime-500 transition-colors pulse-animation">
+              GET MY PLAN
+            </button>
 
             <div className="flex w-full items-center justify-center mb-4">
 
@@ -325,7 +339,7 @@ export default function FineloQuizStep30() {
               <Image src="/pagina30/payment_methods.webp" alt="Payment methods" width={250} height={25} />
             </div>
             <p className="text-xs max-w-lg mx-auto text-slate-200">
-              By clicking "Get My Plan", you agree to automatic renewal of your subscription for €39.99, then €39.99 every 4 weeks (both excluding taxes) until you cancel. You can cancel anytime via support or account settings. See Subscription Terms for details.
+              {"Finelo Limited, Georgiou A, 83, Shop 17, Potamos Germasogeias, 4047, Limassol, the Republic of Cyprus"}
             </p>
           </div>
         </section>
@@ -346,7 +360,7 @@ export default function FineloQuizStep30() {
         <section className="bg-black py-16">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-white text-3xl font-bold mb-4">Access Finelo anywhere using your mobile device </h2>
-            
+
             <Image src="/pagina30/mobile-mockups.png" alt="Finelo on mobile devices" width={800} height={400} className="mx-auto" />
           </div>
         </section>
